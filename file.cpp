@@ -1,15 +1,26 @@
-// TWO SUM PROBLEM
+// REMOVE LINKED LIST ELEMENTS
 #include<bits/stdc++.h>
 using namespace std;
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-    unordered_map<int, int> mp;
-    for( int i =0; i<nums.size(); i++ ){
-        int need = target - nums[i];
-        if( mp.find(need) != mp.end()) return { mp[need], i};
-        mp[nums[i]] = i;
-    }   
-    return {};
+    ListNode* removeElements(ListNode* head, int val) {
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode* curr = dummy;
+        while( curr->next != NULL){
+            if( curr->next->val == val) curr->next = curr->next->next;
+            else curr= curr->next;
+        }
+        return dummy->next;
     }
 };

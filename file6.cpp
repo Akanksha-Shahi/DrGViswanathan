@@ -3,10 +3,10 @@
 using namespace std;
 class MinStack {
     stack<long> st;
-    int mini;
+    long long mini;
 public:
     MinStack() {
-        mini = INT_MAX;
+        mini =  LONG_MAX;
     }
     
     void push(int val) {
@@ -14,29 +14,29 @@ public:
             mini =val;
             st.push(val);
         }
-        else if( val> mini ) st.push(val);
+        else if( val>= mini ) st.push(val);
         else{
-            st.push(2*val-mini);
+            st.push(2LL *val-mini);
             mini = val;
         }
     }
     
     void pop() {
         if(st.empty()) return;
-        int n = st.top();
+        long long n = st.top();
         st.pop();
-        if( n< mini ) mini =2*mini -n;
+        if( n< mini ) mini =2LL *mini -n;
     }
     
     int top() {
         if( st.empty()) return -1;
-        int n = st.top();
-        if ( mini<n) return n;
-        return mini;
+        long long n = st.top();
+        if ( mini <= n) return (int)n;
+        return (int)mini;
     }
     
     int getMin() {
-        return mini;
+        return (int)mini;
     }
 };
 

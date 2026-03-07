@@ -1,4 +1,4 @@
-// 
+// Squares of a sorted array
 #include<bits/stdc++.h>
 using namespace std;
 class Solution {
@@ -21,4 +21,5 @@ public:
         }
         return result;
     }
+
 };

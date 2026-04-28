@@ -4,8 +4,8 @@ using namespace std;
 class Solution {
 public:
     int calculate(string s) {
-        stack<int> st;
-        int result=0, num=0, sign =1;
+        stack<long long> st;
+        long long result=0, num=0, sign =1;
         for(int i =0; i<s.size(); i++){
             char c =s[i];
             if(isdigit(c)){

@@ -16,6 +16,7 @@ public:
             while( true){
                 int nextSlow= nextIndex(nums, slow);
                 int nextFast= nextIndex(nums, fast);
+                if((nums[nextFast]>0) != forward) break;
                 nextFast = nextIndex(nums, nextFast);
                 if( (nums[nextSlow]>0) != forward || (nums[nextFast]>0)!= forward) break;
                 slow = nextSlow;
